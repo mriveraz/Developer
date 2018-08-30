@@ -1,0 +1,21 @@
+package com.demo.domain;
+
+import java.io.Serializable;
+
+@Data
+@NoaAr
+
+public class Contactos  implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7745723910611074771L;
+	private String fullname;
+	private String name;
+	private String email;
+	private String phone;
+	private Address address;
+
+
+}

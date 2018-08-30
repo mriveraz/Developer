@@ -1,0 +1,200 @@
+package com.demo.service;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demo.domain.User;
+import com.demo.integration.DemoIntegration;
+import com.demo.mapper.DemoMapper;
+import com.demo.model.UserModel;
+
+@Service
+public class DemoServiceImpl implements DemoService{
+
+    
+	@Autowired
+	DemoIntegration demoIntegration;
+	
+	@Override
+	public List<UserModel> listaModel() {
+		
+	List<User> userLista = demoIntegration.users().getBody();
+	
+	List<UserModel>  userModelList = new ArrayList<>();
+	
+	for (User user : userLista) {
+		UserModel userModel = DemoMapper.UserToUserModel(user);	
+		userModelList.add(userModel);
+	
+	}
+		
+	return userModelList;
+	}
+
+	@Override
+	public UserModel ganadorModel() {
+		
+		List<User> userLista = demoIntegration.users().getBody();
+		
+		UserModel userModel =  new  UserModel();
+		
+		for (User user : userLista) {
+			if (user.getId()  == 10) {
+				
+				UserModel userModelid = DemoMapper.UserToUserModel(user);	
+			
+				
+				return userModelid;
+				
+			} 
+			   
+			
+		}
+		return userModel;
+	}
+
+		@Override
+		public UserModel ganadorById(Long id) {
+			
+			List<User> userLista = demoIntegration.users().getBody();
+			
+			UserModel userModel =  new  UserModel();
+			
+			for (User user : userLista) {
+				if (user.getId()  == id) {
+					
+					UserModel userModelByid = DemoMapper.UserToUserModel(user);	
+				
+					
+					return userModelByid ;
+					
+				} 
+				   
+				
+			}
+			
+	     
+			return userModel;
+		}
+
+		@Override
+		public List<UserModel> pairWinner()  {
+			
+			List<User> userLista = demoIntegration.users().getBody();
+			List<UserModel>  userModelList = new ArrayList<>();
+			
+			UserModel userModel =  new  UserModel();
+			
+		   for (User user : userLista) {
+			   
+			   if (user.getId() % 2  == 0)  { 
+				   
+			       UserModel   userModelid = DemoMapper.UserToUserModel(user);
+				   userModelList.add(userModelid);
+				
+			   }
+		}
+			
+			
+			 return  userModelList;
+		
+		}
+
+		@Override
+		public List<UserModel> findItem(int item) {
+			
+			
+			List<User> userLista = demoIntegration.users().getBody();
+			List<UserModel>  userModelList = new ArrayList<>();
+			
+			UserModel userModel =  new  UserModel();	
+				for (int i = 0 ; i< item; i++) {
+					   userLista.get(i);
+					   User user = userLista.get(i);
+					   UserModel userModels = DemoMapper.UserToUserModel(user);
+					   userModelList.add(userModels);
+					
+				}
+							
+			return userModelList;
+		}
+
+		@Override
+		public Object data(long id, String field) {
+			
+           
+			List<User> userLista = demoIntegration.users().getBody();
+			
+			/* CON IF-ELSE */
+			/*for (User user : userLista) {
+				if (user.getId() == id && (field.equals("name"))) {
+						
+						return user.getName();
+					} else if(user.getId() == id && (field.equals("phone"))) { 	
+							
+						return user.getPhone();
+					} else if (user.getId() == id && (field.equals("company"))) {
+						
+						return user.getCompany();
+					}
+	
+			}
+			
+			return userLista;
+			*/
+			
+			/* CON SWITCH */
+//			for (User user : userLista) {
+//				
+//				
+//				switch (field) {
+//				case "name" : 
+//					
+//					if (user.getId() == id && (field.equals("name"))) {
+//						
+//						return user.getName();
+//					    
+//				
+//					}
+//				case "phone" :
+//					if(user.getId() == id && (field.equals("phone"))) { 	
+//						
+//						return user.getPhone();
+//					
+//					 }
+//					
+//					 case "company":
+//						 
+//						 if (user.getId() == id && (field.equals("company"))) {
+//								
+//								return user.getCompany();
+//				
+//				}
+//						 
+//				
+//			}
+//			
+//		}
+//			return userLista;   
+//		
+			/* CON JAVA 8 */
+			try {
+				User u = userLista.stream().filter(user -> user.getId() == id).findFirst().get();
+				String dd = u.getClass().getDeclaredField(field).toString();
+				return userLista.stream().filter(user -> user.getId() == id).findFirst().get().getClass().getDeclaredField(field);
+			} catch (NoSuchFieldException e) {
+				return StringUtils.EMPTY;
+			} catch (SecurityException e) {
+				return StringUtils.EMPTY;
+			}
+		}
+		
+}
+	
+  
+

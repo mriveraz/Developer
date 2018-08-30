@@ -1,0 +1,14 @@
+package com.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.demo.model.UserModel;
+
+
+public interface DemoService {
+	
+	 UserModel listaModel();
+	
+	
+}
+ 
