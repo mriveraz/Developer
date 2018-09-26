@@ -1,0 +1,10 @@
+package com.demo.service.components;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface ComponentService {
+	
+
+
+}

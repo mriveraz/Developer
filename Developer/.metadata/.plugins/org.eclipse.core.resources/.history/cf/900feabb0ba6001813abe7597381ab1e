@@ -1,0 +1,24 @@
+package com.demo.domain;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Contact  implements Serializable {
+	
+	private static final long serialVersionUID = -9197359708394832276L; 
+	
+	private String fullname;
+	private String name;
+	private String email;
+	private String phone;
+	private Address address;
+
+}
