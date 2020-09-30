@@ -1,0 +1,133 @@
+package com.demo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.demo.domain.User;
+import com.demo.integration.DemoIntegration;
+import com.demo.mapper.DemoMapper;
+import com.demo.model.UserModel;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
+@Service
+public class DemoServiceImpl implements DemoService{
+
+    
+	@Autowired
+	DemoIntegration demoIntegration;
+	
+	@Override
+	public List<UserModel> listaModel() {
+		
+	List<User> userLista = demoIntegration.users().getBody();
+	
+	List<UserModel>  userModelList = new ArrayList<>();
+	
+	for (User user : userLista) {
+		UserModel userModel = DemoMapper.UserToUserModel(user);	
+		userModelList.add(userModel);
+	
+	}
+		
+	return userModelList;
+	}
+
+	@Override
+	public UserModel ganadorModel() {
+		
+		List<User> userLista = demoIntegration.users().getBody();
+		
+		UserModel userModel =  new  UserModel();
+		
+		for (User user : userLista) {
+			if (user.getId()  == 10) {
+				
+				UserModel userModelid = DemoMapper.UserToUserModel(user);	
+			
+				
+				return userModelid;
+				
+			} 
+			   
+			
+		}
+		return userModel;
+	}
+
+		@Override
+		public UserModel ganadorById(Long id) {
+			
+			List<User> userLista = demoIntegration.users().getBody();
+			
+			UserModel userModel =  new  UserModel();
+			
+			for (User user : userLista) {
+				if (user.getId()  == id) {
+					
+					UserModel userModelByid = DemoMapper.UserToUserModel(user);	
+				
+					
+					return userModelByid ;
+					
+				} 
+				   
+				
+			}
+			
+	     
+			return userModel;
+		}
+
+		@Override
+		public List<UserModel> pairWinner()  {
+			
+			List<User> userLista = demoIntegration.users().getBody();
+			List<UserModel>  userModelList = new ArrayList<>();
+			
+			UserModel userModel =  new  UserModel();
+			
+		   for (User user : userLista) {
+			   
+			   if (user.getId() % 2  == 0)  { 
+				   
+			       UserModel   userModelid = DemoMapper.UserToUserModel(user);
+				   userModelList.add(userModelid);
+				
+			   }
+		}
+			
+			
+			 return  userModelList;
+		
+		}
+
+		@Override
+		public List<UserModel> findItem(int item) {
+			
+			User user=null;
+			List<UserModel>  userModelList = new ArrayList<>();
+			List<User> userLista = demoIntegration.users().getBody();
+			UserModel userModel =  new  UserModel();
+			int items=item;
+			if (item >= 0) {
+				
+				for (int i = items ; i < userModelList.size(); i++) {
+					
+					   UserModel   userModels = DemoMapper.UserToUserModel(user);
+					   userModelList.add(userModels);
+					
+				}
+				
+			}
+				
+			return userModelList;
+		}   
+			
+	}
+	
+  
+

@@ -1,0 +1,19 @@
+1534939128124	Delete element
+1534940425997	Delete element
+1534940742077	Rename package 'com.demo.model'
+1534941522482	Move compilation unit
+1534941538655	Delete element
+1534941702900	Rename package 'com.example.demo'
+1534942080451	Rename type 'Contactos'
+1534942792239	Delete element
+1535005208472	Rename type 'Component'
+1535005252143	Rename type 'ComponentImpl'
+1535006148996	Delete element
+1535006871005	Delete element
+1535006880911	Delete element
+1535006907542	Rename package 'com.demo.web.rest'
+1535010878354	Rename package 'com.demo.service.components'
+1535010887424	Rename type 'ComponentService'
+1535010895092	Rename type 'ComponentServiceImpl'
+1535019350899	Delete element
+1535019357195	Rename type 'Contact'

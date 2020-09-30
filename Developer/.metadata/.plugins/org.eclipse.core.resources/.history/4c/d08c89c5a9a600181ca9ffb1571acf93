@@ -1,0 +1,28 @@
+package com.demo.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.model.UserModel;
+import com.demo.service.components.ComponentServiceImpl;
+
+@RestController
+public class DemoController {
+	
+	@Autowired
+	ComponentServiceImpl componentServiceImpl;
+	
+	@RequestMapping(value="/listado", method= RequestMethod.GET)
+	public UserModel listado(@RequestBody UserModel userModel) {
+		
+		return componentServiceImpl.save(userModel);
+		
+	}
+	
+	
+	
+
+}

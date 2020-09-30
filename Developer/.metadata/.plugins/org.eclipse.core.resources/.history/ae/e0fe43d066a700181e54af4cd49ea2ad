@@ -1,0 +1,23 @@
+package com.demo.mapper;
+
+import java.util.ArrayList;
+
+import com.demo.domain.User;
+import com.demo.model.UserModel;
+
+public class DemoMapper {
+	
+	public  UserModel  UserToUserModel(User user) {
+		
+		UserModel userModel = new UserModel();
+	
+		userModel.setFullName(user.getName() + user.getUsername());
+		
+		
+		return null;
+		
+		
+		
+	}
+
+}

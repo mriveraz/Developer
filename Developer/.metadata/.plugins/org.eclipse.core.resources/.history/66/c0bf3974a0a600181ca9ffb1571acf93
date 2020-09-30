@@ -1,0 +1,14 @@
+package com.demo.web.api;
+
+
+@Api(value = "", description = "the commissions API")
+
+public interface DemoApi {
+	
+	
+	
+	}
+
+	
+
+
