@@ -2,3 +2,4 @@ este es un fichero de prueba
 para comprobar como subir un fichero
 para usar el comando push 
 para usar el comando pull cuando actualizamos un branch remoto
+usamos este comando git pull origin master
