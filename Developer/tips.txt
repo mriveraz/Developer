@@ -1,0 +1,54 @@
+Pasos para subir un Project o fichero a githab
++---------------------------------------------+
+
+git status 
+git add .
+git commit -m "massage"
+git push -u origin master 
+
+
+sh-3.2# git add .
+sh-3.2# git commint -m "subimos project s03.mapstruct"
+git: 'commint' is not a git command. See 'git --help'.
+
+The most similar command is
+	commit
+sh-3.2# git commit -m "subimos project s03.mapstruct"
+[master f01a11f] subimos project s03.mapstruct
+ 26 files changed, 1267 insertions(+)
+ create mode 100644 Developer/s03.mapstruct/.DS_Store
+ create mode 100644 Developer/s03.mapstruct/.gitignore
+ create mode 100644 Developer/s03.mapstruct/.mvn/wrapper/maven-wrapper.jar
+ create mode 100644 Developer/s03.mapstruct/.mvn/wrapper/maven-wrapper.properties
+ create mode 100644 Developer/s03.mapstruct/mvnw
+ create mode 100644 Developer/s03.mapstruct/mvnw.cmd
+ create mode 100644 Developer/s03.mapstruct/pom.xml
+ create mode 100644 Developer/s03.mapstruct/s03.mapstruct.png
+ create mode 100644 Developer/s03.mapstruct/s03.mapstruct.ucls
+ create mode 100644 Developer/s03.mapstruct/s03.png
+ create mode 100644 Developer/s03.mapstruct/s03.ucls
+ create mode 100644 Developer/s03.mapstruct/src/.DS_Store
+ create mode 100644 Developer/s03.mapstruct/src/main/.DS_Store
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/Application.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/domain/House.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/domain/Owner.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/domain/repositories/HouseRepository.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/domain/repositories/OwnerRepository.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/dto/HouseDTO.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/dto/OwnerDTO.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/mappings/HouseToHouseDTOMapper.java
+ create mode 100644 Developer/s03.mapstruct/src/main/java/es/anaya/spring/data/s03/mapstruct/mappings/OwnerToOwnerDTOMapper.java
+ create mode 100644 Developer/s03.mapstruct/src/main/resources/application.properties
+ create mode 100644 Developer/s03.mapstruct/src/main/resources/import.sql
+ create mode 100644 Developer/s03.mapstruct/src/test/java/es/anaya/spring/data/s03/mapstruct/HouseToHouseDTOMapperTest.java
+ create mode 100644 Developer/s03.mapstruct/src/test/java/es/anaya/spring/data/s03/mapstruct/OwnerToOwnerDTOMapperTest.java
+sh-3.2# git push -u origin master
+Counting objects: 51, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (37/37), done.
+Writing objects: 100% (51/51), 81.34 KiB | 6.26 MiB/s, done.
+Total 51 (delta 10), reused 1 (delta 0)
+remote: Resolving deltas: 100% (10/10), completed with 2 local objects.
+To https://github.com/mriveraz/Developer.git
+   66956c7..f01a11f  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
